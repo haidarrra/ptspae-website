@@ -2,7 +2,11 @@
 
 Website profile untuk **PT Saekapraya Adhitama Engineering (PT SPAE)**, dibangun dari awal di folder yang sebelumnya kosong.
 
-> **Important:** proyek ini **tidak** melakukan deploy dan **tidak** mengubah situs live `ptspae.com`. Seluruh pekerjaan bersifat lokal.
+> **Live (GitHub Pages):** https://haidarrra.github.io/ptspae-website/
+>
+> Repo: https://github.com/haidarrra/ptspae-website · Source di `main`, hasil build di `gh-pages`.
+>
+> Situs live `ptspae.com` **tidak** diubah — hosting ini hanya untuk preview/publikasi terpisah.
 
 ## Tech stack
 
@@ -70,6 +74,21 @@ Seluruh data perusahaan diambil secara **read-only** dari `ptspae.com` (`/`, `/a
 - Nama & gambar produk dari katalog resmi
 
 **Tidak ada data yang direkayasa:** tidak ada klien, sertifikasi, angka pencapaian, spesifikasi teknis, harga, stok, atau testimoni yang dikarang. Halaman `/service` dan `/project` di situs live tidak memuat detail proyek nyata, sehingga bagian ini dirender sebagai **kategori kapasitas** dengan catatan eksplisit di UI. Desain mengikuti referensi visual `trialogix.id` (tipografi industri, grid gelap, alur kerja, brand strip), bukan konten bisnisnya.
+
+## Deploy ke GitHub Pages
+
+```bash
+npm run build
+# isi folder dist/ di-push ke branch gh-pages
+# GitHub Pages: Settings → Pages → Source: Deploy from branch → gh-pages / (root)
+```
+
+Penyesuaian agar SPA bekerja di *project page*:
+
+- `vite.config.ts` → `base: '/ptspae-website/'`
+- `main.tsx` → `<BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>`
+- `src/lib/assets.ts` → helper `asset()` untuk semua path di `public/images`
+- `public/404.html` + script di `index.html` → fallback routing saat akses URL langsung seperti `/produk/:slug`
 
 ## Catatan dependensi
 
