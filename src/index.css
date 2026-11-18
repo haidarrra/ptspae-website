@@ -1,0 +1,252 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', ui-sans-serif, sans-serif;
+
+  --color-navy-950: #06131f;
+  --color-navy-900: #0a1f31;
+  --color-navy-800: #102b42;
+  --color-navy-700: #183c58;
+  --color-navy-600: #245178;
+
+  --color-steel-100: #eef3f7;
+  --color-steel-200: #d9e3ec;
+  --color-steel-300: #b6c6d5;
+  --color-steel-400: #8ba2b6;
+  --color-steel-500: #677f94;
+
+  --color-brand-300: #ffd08a;
+  --color-brand-400: #f9b65c;
+  --color-brand-500: #f2a33c;
+  --color-brand-600: #d9841d;
+}
+
+:root {
+  color-scheme: light;
+  font-family: var(--font-sans);
+  color: var(--color-navy-900);
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+::selection {
+  background: var(--color-brand-500);
+  color: var(--color-navy-950);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Layout primitives ---------- */
+.site-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    padding-inline: 2rem;
+  }
+}
+
+.section-pad {
+  padding-block: 4.75rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-block: 6.5rem;
+  }
+}
+
+/* ---------- Typography ---------- */
+.heading-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  line-height: 1.02;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brand-600);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 1.75rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.9rem;
+  padding-inline: 1.35rem;
+  border-radius: 0.3rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--color-brand-500);
+  color: var(--color-navy-950);
+  box-shadow: 0 10px 24px -12px rgb(242 163 60 / 0.8);
+}
+
+.btn-primary:hover {
+  background: var(--color-brand-400);
+}
+
+.btn-dark {
+  background: var(--color-navy-900);
+  color: #ffffff;
+}
+
+.btn-dark:hover {
+  background: var(--color-navy-800);
+}
+
+.btn-outline {
+  border: 1px solid rgb(255 255 255 / 0.32);
+  color: #ffffff;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-brand-500);
+  color: var(--color-brand-400);
+}
+
+.btn-outline-dark {
+  border: 1px solid var(--color-steel-300);
+  color: var(--color-navy-900);
+  background: transparent;
+}
+
+.btn-outline-dark:hover {
+  border-color: var(--color-brand-600);
+  color: var(--color-brand-600);
+}
+
+/* ---------- Surfaces & decorative details ---------- */
+.card-surface {
+  background: #ffffff;
+  border: 1px solid var(--color-steel-200);
+  border-radius: 0.55rem;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(
+      to right,
+      rgb(255 255 255 / 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+.grid-pattern-light {
+  background-image: linear-gradient(to right, rgb(10 31 49 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(10 31 49 / 0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+.hero-glow {
+  background: radial-gradient(
+    circle at 78% 32%,
+    rgb(242 163 60 / 0.2) 0%,
+    transparent 52%
+  );
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--color-steel-200);
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-steel-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-steel-400);
+  border-radius: 999px;
+  border: 2px solid var(--color-steel-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-steel-500);
+}
