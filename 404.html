@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mengalihkan...</title>
+    <script>
+      // GitHub Pages SPA fallback for a Project Page:
+      // https://haidarrra.github.io/ptspae-website/
+      // Keep segment 0 (the repo name), encode the remaining route into the query.
+      (function () {
+        var pathSegmentsToKeep = 1
+        var l = window.location
+        l.replace(
+          l.protocol +
+            '//' +
+            l.hostname +
+            (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') +
+            '/?/' +
+            l.pathname
+              .substr(1)
+              .split('/')
+              .slice(pathSegmentsToKeep)
+              .join('/')
+              .replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.substr(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        )
+      })()
+    </script>
+  </head>
+  <body>
+    <p>Mengalihkan...</p>
+  </body>
+</html>
