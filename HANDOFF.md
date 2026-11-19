@@ -9,14 +9,15 @@ Diperbarui 19 Nov 2026. Dokumen ini melanjutkan sesi 1 setelah revisi diminta. U
 | Item | Nilai |
 |---|---|
 | Folder proyek | `D:\Haidar\SPAE` |
-| Working tree | **Uncommitted** — seluruh revisi masih lokal |
-| Commit `main` terakhir | `183cfc7 Fix GitHub Pages SPA fallback path segmentation` (versi sesi 1) |
-| Branch `gh-pages` | masih build sesi 1 (memuat halaman produk) |
+| Working tree | clean (setelah commit dokumentasi terakhir) |
+| Commit `main` terakhir | `7a19b7d Revise PT SAE site: PDF-sourced content, photo slideshow, mobile-first UX, remove products` |
+| Branch `gh-pages` | `86ecd0d Deploy revised PT SAE site (PDF content, slideshow, mobile-first)` |
+| **Live preview** | **https://haidarrra.github.io/ptspae-website/** — sudah bisa diakses dari handphone |
 | Situs live `ptspae.com` | **TIDAK diubah** |
-| GitHub Pages preview | **TIDAK di-deploy** |
+| DNS | **TIDAK diubah** |
 | Preview lokal | `http://127.0.0.1:4174/ptspae-website/` |
 
-**Jangan push / deploy sebelum owner menyetujui hasil.**
+Deploy dilakukan setelah owner meminta situs bisa dicoba dari handphone. GitHub Pages saja — tidak menyentuh `ptspae.com`.
 
 ---
 
@@ -110,22 +111,24 @@ src/
 
 ---
 
-## 7. Cara lanjut (setelah persetujuan owner)
+## 7. Cara update berikutnya
 
 ```bash
 cd D:\Haidar\SPAE
 npm run build
 
 # 1) commit source
-git add -A && git commit -m "Revise PT SAE site: PDF content, slideshow, mobile-first, remove products"
+git add -A && git commit -m "..." && git push origin main
 
-# 2) deploy hasil build ke gh-pages (repo temporary agar source tidak tercampur)
-#    isi dist/ → branch gh-pages → push
+# 2) deploy hasil build: clone sementara branch gh-pages,
+#    replace isinya dengan dist/, commit, lalu push origin gh-pages
 
 # 3) Jangan ubah DNS / situs ptspae.com tanpa instruksi eksplisit.
 ```
 
-Server preview yang benar adalah port **4174** (dengan base `/ptspae-website/`).
+Server preview lokal yang benar adalah port **4174** (dengan base `/ptspae-website/`).
+
+Verifikasi live setelah deploy (19 Nov 2026): 6 rute langsung (termasuk 404) render benar di viewport 390px dengan headless Chrome, 34/34 gambar `200 image/jpeg`, title `PT SAE`, dan 0 sisa referensi "PT SPAE"/"Produk".
 
 ---
 

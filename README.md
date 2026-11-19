@@ -2,9 +2,11 @@
 
 Website profil untuk **PT Saekapraya Adhitama Engineering (PT SAE)** — hasil revisi dari versi sesi 1. Singkatan resmi adalah **PT SAE**; domain resmi tetap `https://www.ptspae.com/`.
 
-> **Status:** perubahan **lokal / uncommitted**. Belum di-push dan belum di-deploy.
+> **Status:** revisi sudah di-commit ke `main` (`7a19b7d`) dan hasil build di-deploy ke `gh-pages` (`86ecd0d`).
 >
-> Situs live `ptspae.com` dan `haidarrra.github.io/ptspae-website` **tidak diubah**.
+> **Live preview:** https://haidarrra.github.io/ptspae-website/ — bisa dibuka dari handphone.
+>
+> Situs live `ptspae.com` **tidak diubah**; DNS tidak disentuh.
 >
 > Preview lokal: `http://127.0.0.1:4174/ptspae-website/` (jalankan `npm run preview -- --host 127.0.0.1 --port 4174`).
 
@@ -94,12 +96,17 @@ Desain mengikuti bahasa visual `trialogix.id` (tipografi industri, grid gelap, a
 - Console error runtime: 0 di semua rute.
 - File audit sementara sudah dihapus dari `dist/`.
 
-## Deploy (tertunda — butuh persetujuan owner)
+## Deploy
+
+Sudah dilakukan ke GitHub Pages (bukan `ptspae.com`):
 
 ```bash
 npm run build
-# setelah disetujui: commit source ke main, lalu isi dist/ di-push ke gh-pages
+git add -A && git commit -m "..." && git push origin main
+# isi dist/ di-push ke branch gh-pages (clone sementara dipakai agar source tidak tercampur)
 ```
+
+Untuk update berikutnya, ulangi langkah di atas — jangan pernah menimpa repo `haidarrra.github.io`.
 
 Konfigurasi khusus GitHub Pages yang **harus dipertahankan**:
 
