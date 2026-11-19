@@ -15,7 +15,7 @@ export default function ServicesPage() {
       <PageHero
         crumb="Layanan"
         title="Layanan Kami"
-        description="PT SPAE menyediakan pengadaan perangkat, integrasi sistem, dan dukungan rekayasa untuk kebutuhan otomasi industri di Indonesia."
+        description="PT SAE menyediakan pengadaan perangkat, integrasi sistem, dan dukungan rekayasa untuk kebutuhan otomasi industri di Indonesia."
       />
 
       <section className="section-pad grid-pattern-light bg-steel-100">
@@ -23,13 +23,13 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="Penawaran Layanan"
             title="Solusi yang Kami Sediakan"
-            description="Lingkup layanan berikut disusun berdasarkan profil dan katalog resmi PT SPAE. Detail cakupan pekerjaan dapat didiskusikan lebih lanjut dengan tim kami."
+            description="Lingkup layanan berikut disusun berdasarkan profil resmi PT SAE. Detail cakupan pekerjaan dapat didiskusikan lebih lanjut dengan tim kami."
           />
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <Reveal key={service.title} delay={(index % 3) * 80}>
-                <article className="card-surface group flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-lg">
+                <article className="card-surface group flex h-full flex-col p-7 transition-colors duration-200 hover:border-brand-500 motion-reduce:transition-none">
                   <div className="flex items-start justify-between">
                     <span className="flex h-12 w-12 items-center justify-center rounded bg-navy-900 text-brand-400 transition-colors group-hover:bg-brand-500 group-hover:text-navy-950">
                       <service.icon size={23} />
@@ -49,7 +49,7 @@ export default function ServicesPage() {
                     href={serviceInquiryUrl(service.title)}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-5 inline-flex items-center gap-1.5 border-t border-steel-200 pt-5 text-xs font-bold text-brand-600 transition-colors hover:text-brand-500"
+                    className="touch-link mt-5 inline-flex items-center gap-1.5 border-t border-steel-200 pt-5 text-xs font-bold text-brand-600 transition-colors hover:text-brand-500"
                   >
                     <MessageCircle size={14} /> Tanya layanan ini
                   </a>
@@ -62,7 +62,7 @@ export default function ServicesPage() {
             <div className="mt-10 flex flex-col items-start justify-between gap-5 rounded-lg bg-navy-900 p-7 text-white sm:flex-row sm:items-center">
               <div>
                 <h3 className="heading-display text-2xl font-bold">Butuh penawaran untuk proyek Anda?</h3>
-                <p className="mt-2 text-sm text-steel-300">Diskusikan kebutuhan Anda langsung dengan tim PT SPAE.</p>
+                <p className="mt-2 text-sm text-steel-300">Diskusikan kebutuhan Anda langsung dengan tim PT SAE.</p>
               </div>
               <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn btn-primary shrink-0">
                 <MessageCircle size={17} /> Hubungi Kami <ArrowUpRight size={15} />

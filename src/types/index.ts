@@ -1,16 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
 
-export type ProductCategory = 'PLC' | 'PLC Allen Bradley' | 'Transmitters Gauge'
-
-export interface Product {
-  slug: string
-  name: string
-  category: ProductCategory
-  image: string
-  summary: string
-  sourceUrl: string
-}
-
 export interface Service {
   icon: LucideIcon
   title: string
@@ -31,10 +20,34 @@ export interface WorkflowStep {
   description: string
 }
 
-export interface Project {
-  title: string
-  category: string
+/** A single real project entry as published in the company profile PDF. */
+export interface ProjectItem {
+  name: string
+  customer?: string
+  user?: string
+  year?: string
+  location?: string
+}
+
+/** A project sector as published in the company profile PDF. */
+export interface ProjectSector {
+  id: string
+  name: string
   description: string
-  image?: string
-  placeholder?: boolean
+  image: string
+  items: ProjectItem[]
+}
+
+/** Photo-led project experience entry (no invented details). */
+export interface ProjectGalleryItem {
+  title: string
+  detail?: string
+  image: string
+}
+
+export interface HeroSlide {
+  image: string
+  eyebrow: string
+  title: string
+  description: string
 }

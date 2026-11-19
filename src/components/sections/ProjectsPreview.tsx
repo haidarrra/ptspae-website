@@ -1,54 +1,70 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Factory, Gauge, Settings2, Wrench } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Container from '../ui/Container'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
-import { projects, projectsNotice } from '../../data/projects'
+import { projectSectors, totalProjects } from '../../data/projects'
 
-const icons = [Factory, Gauge, Settings2, Wrench]
+const featuredIds = [
+  'oil-gas',
+  'petrochemical',
+  'power-plant',
+  'control-scada',
+  'panel-work',
+  'fat-sat',
+]
+
+const featured = featuredIds
+  .map((id) => projectSectors.find((sector) => sector.id === id))
+  .filter((sector): sector is (typeof projectSectors)[number] => Boolean(sector))
 
 export default function ProjectsPreview() {
   return (
     <section className="section-pad grid-pattern-light bg-steel-100">
       <Container>
         <SectionHeading
-          eyebrow="Portofolio & Proyek"
-          title="Bidang Karya Kami"
-          description="PT SPAE berpengalaman dalam menyediakan perangkat dan dukungan rekayasa untuk berbagai kebutuhan proses industri."
-          action={
-            <Link to="/proyek" className="btn btn-outline-dark">
-              Lihat Portofolio <ArrowRight size={16} />
-            </Link>
-          }
+          eyebrow="Pengalaman Proyek"
+          title="Proyek yang Telah Kami Dukung"
+          description={`Dokumentasi ${totalProjects} proyek pada ${projectSectors.length} sektor industri, sebagaimana dipublikasikan dalam Company Profile PT SAE.`}
+          align="center"
         />
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {projects.map((project, index) => {
-            const Icon = icons[index]
-            return (
-              <Reveal key={project.title} delay={index * 70}>
-                <article className="card-surface group h-full overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-lg">
-                  <div className="relative flex h-32 items-center justify-center overflow-hidden bg-navy-900">
-                    <div className="grid-pattern absolute inset-0 opacity-70" />
-                    <Icon size={42} className="relative text-brand-500/80 transition-transform duration-300 group-hover:scale-110" />
-                    <span className="absolute bottom-3 left-4 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-steel-400">
-                      {project.category}
-                    </span>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-sm font-bold leading-snug text-navy-900">{project.title}</h3>
-                    <p className="mt-2 text-xs leading-relaxed text-steel-500">{project.description}</p>
-                  </div>
-                </article>
-              </Reveal>
-            )
-          })}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((sector, index) => (
+            <Reveal key={sector.id} delay={(index % 3) * 60}>
+              <Link
+                to="/proyek"
+                className="group block h-full overflow-hidden rounded-lg border border-steel-200 bg-white transition-colors hover:border-brand-500/70"
+              >
+                <div className="overflow-hidden bg-navy-800">
+                  <img
+                    src={sector.image}
+                    alt={`Dokumentasi proyek ${sector.name}`}
+                    loading="lazy"
+                    className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-600">
+                    {sector.name}
+                  </p>
+                  <h3 className="mt-2 text-sm font-bold leading-snug text-navy-900">
+                    {sector.items[0]?.name}
+                  </h3>
+                  <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-brand-600">
+                    Lihat detail <ArrowRight size={14} />
+                  </p>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
         </div>
 
-        <p className="mt-8 max-w-3xl rounded border-l-2 border-brand-500 bg-white/70 px-4 py-3 text-xs leading-relaxed text-steel-500">
-          <strong className="text-navy-800">Catatan: </strong>
-          {projectsNotice}
-        </p>
+        <div className="mt-10 text-center">
+          <Link to="/proyek" className="btn btn-dark">
+            Lihat Semua Proyek <ArrowRight size={16} />
+          </Link>
+        </div>
       </Container>
     </section>
   )

@@ -1,6 +1,7 @@
-import { Award, CalendarDays, Layers3, UsersRound } from 'lucide-react'
+import { Award, CalendarDays, ClipboardList, Layers3 } from 'lucide-react'
 import type { Strength, WorkflowStep } from '../types'
 import { company } from './company'
+import { projectSectors } from './projects'
 
 export const strengths: Strength[] = [
   {
@@ -8,21 +9,21 @@ export const strengths: Strength[] = [
     stat: 'Sejak ' + company.founded,
     title: 'Pengalaman Industri',
     description:
-      'Berbasis di Jakarta Timur dan melayani kebutuhan otomasi industri di seluruh Indonesia sejak 2006.',
+      'Berbasis di Jakarta Timur dan melayani kebutuhan instrumentasi, electrical, dan otomasi industri di Indonesia.',
+  },
+  {
+    icon: ClipboardList,
+    stat: `${projectSectors.length} Sektor`,
+    title: 'Portofolio Proyek',
+    description:
+      'Dokumentasi proyek pada sektor food & beverage, oil & gas, petrochemical, power plant, dan sistem kontrol.',
   },
   {
     icon: Layers3,
     stat: 'End-to-end',
     title: 'Solusi Terintegrasi',
     description:
-      'Perencanaan teknis, integrasi sistem, project management, hingga dukungan purnajual dalam satu mitra.',
-  },
-  {
-    icon: UsersRound,
-    stat: 'Responsif',
-    title: 'Tim Engineer',
-    description:
-      'Tim engineer berpengalaman dan responsif untuk mendukung produktivitas serta menekan biaya maintenance.',
+      'Dari perencanaan teknis dan panel work hingga FAT/SAT, instalasi, kalibrasi, dan dukungan operasional.',
   },
   {
     icon: Award,
@@ -33,30 +34,42 @@ export const strengths: Strength[] = [
   },
 ]
 
-/** Adapted from the verified service scope on ptspae.com/about. */
+/** Stages are taken from the workflow and documentation shown in the company profile PDF. */
 export const workflow: WorkflowStep[] = [
   {
     number: '01',
-    title: 'Perencanaan Teknis',
+    title: 'Engineering Design',
     description:
-      'Mengkaji kebutuhan dan merancang solusi otomasi yang sesuai dengan proses industri Anda.',
+      'Perencanaan teknis dan penyiapan solusi untuk sistem kontrol, instrumentasi, dan panel sesuai kebutuhan proses.',
   },
   {
     number: '02',
-    title: 'Integrasi Sistem',
+    title: 'Panel & Fabrication',
     description:
-      'Mengintegrasikan PLC, instrumentation, dan komponen kontrol ke dalam sistem yang bekerja bersama.',
+      'Wiring control panel, engineering program remote panel, serta pengecekan daya pada peralatan dan pompa.',
   },
   {
     number: '03',
-    title: 'Project Management',
+    title: 'Factory Acceptance Test',
     description:
-      'Mengelola pelaksanaan proyek agar berjalan sesuai ruang lingkup, waktu, dan kebutuhan operasional.',
+      'Pengujian panel dan sistem di workshop sebelum pengiriman, terdokumentasi sebagai FAT pada profil perusahaan.',
   },
   {
     number: '04',
-    title: 'Dukungan Purnajual',
+    title: 'Installation & Calibration',
     description:
-      'Menemani operasional setelah instalasi melalui dukungan teknis dan pemeliharaan berkelanjutan.',
+      'Instalasi perangkat electrical dan instrumentasi, termasuk grounding, tubing, metering, serta kalibrasi pressure dan flow meter.',
+  },
+  {
+    number: '05',
+    title: 'Site Acceptance Test',
+    description:
+      'Pengujian dan verifikasi sistem di lokasi proyek, terdokumentasi sebagai SAT pada profil perusahaan.',
+  },
+  {
+    number: '06',
+    title: 'Dukungan Operasional',
+    description:
+      'Maintenance contract dan support technician untuk mendukung keandalan operasional setelah instalasi.',
   },
 ]

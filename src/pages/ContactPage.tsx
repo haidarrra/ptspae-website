@@ -12,7 +12,7 @@ export default function ContactPage() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const message = [
-      'Halo PT SPAE, saya ingin menghubungi tim Anda.',
+      'Halo PT SAE, saya ingin menghubungi tim Anda.',
       'Nama: ' + form.name,
       'No. Handphone: ' + form.phone,
       form.email ? 'Email: ' + form.email : '',
@@ -32,7 +32,7 @@ export default function ContactPage() {
       <PageHero
         crumb="Kontak"
         title="Hubungi Kami"
-        description="Butuh penawaran harga, informasi produk, atau jadwal kunjungan? Hubungi tim PT SPAE melalui formulir berikut atau langsung via WhatsApp."
+        description="Butuh penawaran, informasi layanan, atau jadwal kunjungan? Hubungi tim PT SAE melalui formulir berikut atau langsung via WhatsApp."
       />
 
       <section className="section-pad bg-white">
@@ -108,9 +108,13 @@ export default function ContactPage() {
                   </span>
                   <h3 className="heading-display mt-5 text-2xl font-bold">Chat Langsung</h3>
                   <p className="mt-3 text-sm leading-relaxed text-steel-300">
-                    Cara tercepat untuk mendapatkan respons dari tim PT SPAE.
+                    Cara tercepat untuk mendapatkan respons dari tim PT SAE.
                   </p>
                   <p className="mt-5 text-lg font-bold text-white">{company.whatsappDisplay}</p>
+                  <div className="mt-3 space-y-2 break-all text-sm text-steel-300">
+                    <p>Telepon: {company.phone}</p>
+                    <p>Email: {company.email}</p>
+                  </div>
                   <a
                     href={buildWhatsAppUrl()}
                     target="_blank"
@@ -133,7 +137,7 @@ export default function ContactPage() {
                     href={company.mapsDirectionsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-500"
+                    className="touch-link mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-500"
                   >
                     Buka petunjuk arah <ArrowUpRight size={14} />
                   </a>
@@ -149,7 +153,7 @@ export default function ContactPage() {
           <Reveal>
             <div className="h-[380px] overflow-hidden rounded-lg border border-steel-200">
               <iframe
-                title="Lokasi PT SPAE"
+                title="Lokasi PT SAE"
                 src="https://www.google.com/maps?q=-6.311703557639202,106.91210800334113&output=embed"
                 className="h-full w-full"
                 loading="lazy"

@@ -5,20 +5,20 @@ export function buildWhatsAppUrl(message?: string): string {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base
 }
 
-export function productInquiryUrl(productName: string): string {
+export function serviceInquiryUrl(serviceName: string): string {
   return buildWhatsAppUrl(
-    `Halo PT SPAE, saya ingin bertanya tentang ${productName}. Mohon informasinya. Terima kasih.`,
+    `Halo PT SAE, saya ingin bertanya tentang layanan ${serviceName}. Mohon informasinya. Terima kasih.`,
   )
 }
 
-export function serviceInquiryUrl(serviceName: string): string {
+export function projectInquiryUrl(projectName: string): string {
   return buildWhatsAppUrl(
-    `Halo PT SPAE, saya ingin bertanya tentang layanan ${serviceName}. Mohon informasinya. Terima kasih.`,
+    `Halo PT SAE, saya ingin bertanya tentang proyek ${projectName}. Mohon informasinya. Terima kasih.`,
   )
 }
 
 export function generalInquiryUrl(): string {
   return buildWhatsAppUrl(
-    `Halo PT SPAE, saya ingin berkonsultasi mengenai solusi otomasi industri. Terima kasih.`,
+    'Halo PT SAE, saya ingin berkonsultasi mengenai solusi otomasi industri. Terima kasih.',
   )
 }

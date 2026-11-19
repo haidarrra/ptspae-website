@@ -20,7 +20,7 @@ export default function PageHero({
       <div className="hero-glow pointer-events-none absolute inset-0" />
       <Container className="relative py-14 lg:py-20">
         <nav className="flex items-center gap-1.5 text-[0.7rem] font-medium uppercase tracking-wider text-steel-400">
-          <Link to="/" className="transition-colors hover:text-brand-400">
+          <Link to="/" className="touch-link transition-colors hover:text-brand-400">
             Beranda
           </Link>
           <ChevronRight size={13} />
